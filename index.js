@@ -21,7 +21,7 @@ router.get("/",function(req,res){
 // });
 
 app.use("/",router);
-
+app.use("/css",express.static(__dirname + "/css"));
 // app.use("*",function(req,res){
 //   res.sendFile(path + "404.html");
 // });
