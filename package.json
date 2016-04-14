@@ -1,0 +1,25 @@
+{
+  "name": "aprimapapp",
+  "version": "1.0.0",
+  "description": "Agri Map Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/batman1292/AgriMapApp.git"
+  },
+  "keywords": [
+    "agri",
+    "map",
+    "webapplication",
+    "gis"
+  ],
+  "author": "BVH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/batman1292/AgriMapApp/issues"
+  },
+  "homepage": "https://github.com/batman1292/AgriMapApp#readme"
+}
