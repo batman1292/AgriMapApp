@@ -1,28 +1,25 @@
+<% stuff = typeof stuff !== 'object' ? {} : stuff %>
 <nav class="navbar navbar-inverse navbar-fixed-top navbar-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-expand-toggle">
                 <i class="fa fa-bars icon"></i>
             </button>
-            <ol class="breadcrumb navbar-breadcrumb">
-                <li class="active">Map</li>
+            <ol id="title" class="breadcrumb navbar-breadcrumb">
+                <li class="active"><a href="/">Map</a></li>
+                <% if (stuff.provice) { %>
+                  <li class="active">
+                    <% if (stuff.type) %> <a href="/shelfs/<%-stuff.provice-%>" >
+                    <%-stuff.provice-%>
+                    <% if (stuff.type) %> </a>
+                  </li>
+                <% } %>
+                <% if (stuff.type) { %>
+                  <% if(stuff.type == 1) %>
+                  <li class="active">แผนที่ขอบเขตการปกครอง</li>
+                <% } %>
             </ol>
-            <ul class="nav navbar-nav navbar-breadcrumb" style=" right: -100%; padding-right:-100%">
-              <li class="dropdown">
-                  <a class="dropdown-toggle icon" data-toggle="dropdown" role="button" aria-expanded="false">
-                    <i class="material-icons icon">layers</i>
-                    widget
-                  </a>
-                  <ul class="dropdown-menu animated fadeInDown">
-                      <li style="color:black">
-                          Notification
-                      </li>
-                      <li style="color:black">
-                          No new notification
-                      </li>
-                  </ul>
-              </li>
-            </ul>
+
         </div>
         <!-- <div class="navbar-right"> -->
         <!-- <ul class="nav navbar-nav">
