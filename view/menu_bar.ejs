@@ -6,14 +6,7 @@
                 <i class="fa fa-bars icon"></i>
             </button>
             <ol id="title" class="breadcrumb navbar-breadcrumb">
-              <% if(stuff.page == "index"){ %>
-                <li class="">Home</li>
-              <% } else { %>
-                <li class="">Map</li>
-                <% if (stuff.provice) { %>
-                  <li class="active"><a href="/shelfs/<%-stuff.provice-%>"><%-stuff.provice-%></a></li>
-                <% } %>
-              <% } %>
+
               <!-- <% if (stuff.type) { %>
                 <% if(stuff.type == 1) %>
                 <li class="active">แผนที่ขอบเขตการปกครอง</li>
@@ -49,3 +42,38 @@
         <!-- </div> -->
     </div>
 </nav>
+<script>
+var height = window.screen.height;
+var width  = window.screen.width;
+var title  = document.getElementById("title");
+if(width < height){
+  title.innerHTML  = " <% if (stuff.type) { %> \
+    <% if(stuff.type == 1) %>\
+    <li class='active'>แผนที่ขอบเขตการปกครอง</li>\
+  <% }else{ %>\
+    <li class='active'><a href='/'>Map</a></li>\
+    <% if (stuff.provice) { %>\
+      <li class='active'>\
+        <% if (stuff.type) %> <a href='/shelfs/<%-stuff.provice-%>' >\
+        <%-stuff.provice-%>\
+        <% if (stuff.type) %> </a>\
+      </li>\
+    <% } %>\
+    <% } %>\
+  ";
+}else{
+  title.innerHTML  = "<li class='active'><a href='/provice'>Map</a></li>\
+    <% if (stuff.provice) { %>\
+      <li class='active'>\
+        <% if (stuff.type) %> <a href='/shelfs/<%-stuff.provice-%>' >\
+        <%-stuff.provice-%>\
+        <% if (stuff.type) %> </a>\
+        </li>\
+        <% if (stuff.type){ %> \
+          <% if(stuff.type == 1) %>\
+          <li class='active'>แผนที่ขอบเขตการปกครอง</li>\
+      <%  } %>\
+    <% } %>\
+  ";
+}
+</script>
