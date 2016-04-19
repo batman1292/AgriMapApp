@@ -1,9 +1,16 @@
+<% stuff = typeof stuff !== 'object' ? {} : stuff %>
 <% include header %>
 <% include menu_bar %>
 <% include menu_side %>
 <div class="container-fluid">
     <div class="side-body">
-        <% include map %>
+      <% if (stuff.type == 1) { %>
+        <% include map/map_1 %>
+      <% } else if(stuff.type == 8) { %>
+        <% include map/map_8 %>
+      <% } else if(stuff.type == 129) { %>
+        <% include map/map_129 %>
+      <% } %>
     </div>
 </div>
 <% include footer %>

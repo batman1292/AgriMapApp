@@ -1,0 +1,39 @@
+{
+  "data":[
+    {
+      "MapId" : "6",
+      "MapGroup" : "ขอบเขตการปกครอง",
+      "MapGroupID" : "1",
+      "MapClass" : "ขอบเขตทั่วไป",
+      "MapClassID" : "1"
+    },
+    {
+      "MapId" : "7",
+      "MapGroup" : "พื้นที่ปลูกยาง",
+      "MapGroupID" : "6",
+      "MapClass" : "แผนที่ด้านดิน",
+      "MapClassID" : "2"
+    },
+    {
+      "MapId" : "8",
+      "MapGroup" : "แหล่งน้ำผิวดิน",
+      "MapGroupID" : "8",
+      "MapClass" : "แผนที่ด้านน้ำ",
+      "MapClassID" : "3"
+    },
+    {
+      "MapId" : "9",
+      "MapGroup" : "แหล่งน้ำใต้ดิน",
+      "MapGroupID" : "9",
+      "MapClass" : "แผนที่ด้านน้ำ",
+      "MapClassID" : "3"
+    },
+    {
+      "MapId" : "10",
+      "MapGroup" : "โครงการพัฒนาแหล่งน้ำ",
+      "MapGroupID" : "10",
+      "MapClass" : "แผนที่ด้านน้ำ",
+      "MapClassID" : "3"
+    },
+  ]
+}
