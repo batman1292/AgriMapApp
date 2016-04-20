@@ -17,23 +17,27 @@
     <script type="text/javascript" src="/css/dist/lib/js/ace/ace.js"></script>
     <script type="text/javascript" src="/css/dist/lib/js/ace/mode-html.js"></script>
     <script type="text/javascript" src="/css/dist/lib/js/ace/theme-github.js"></script>
-    <script type="text/javascript" src="/ammap/ammap.js"></script>//
-    <script type="text/javascript" src="/ammap/maps/js/thailandHigh.js"></script>//
+    <script type="text/javascript" src="/ammap/ammap.js"></script>
+    <script type="text/javascript" src="/ammap/maps/js/thailandHigh.js"></script>
     <!-- Javascript -->
     <script type="text/javascript" src="/css/dist/js/app.js"></script>
     <script type="text/javascript" src="/css/dist/js/index.js"></script>
     <script>
-    var map = AmCharts.makeChart("mapdiv", {
-      type: "map",
-      balloon: {
-        color: "#000000"
-      },
-      dataProvider: {
+    var map = AmCharts.makeChart("mapdiv",
+	{ type: "map",
+      "dataProvider": {
         map: "thailandHigh",
-        getAreasFromMap: true
+        //getAreasFromMap: true,
+		"areas": [
+		{ "id": "TH-22" }, //id area Chanthaburi
+		{ "id": "TH-53" }  //id area Uttharadit
+	  ]
       },
-	});
+	},
+	{ type:"click",
+	  urlTarget:"www.google.com"
+	}
+	);
   </script>
-
   </body>
 </html>
