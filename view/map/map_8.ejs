@@ -199,6 +199,7 @@ document.getElementById('mapid').style.height = height*3/4+"px";
     };
 
     L.control.layers(baseLayers, overlays).addTo(map);
+
     irri_sGridUrl.on('click', function (e) {
       // var tamp_pwa_grid = '<div><strong>' + e.data.sta_name + '</strong></div><div><label><span>สาขา :</span></label><span>' + e.data.kpp_branch + '</span><br/><label><span>ปริมาณน้ำที่สูบ (ลบ.ม./วัน) :</span></label><span>' + e.data.Q_cms + '</span><br/><label><span>ผู้รับผิดชอบ :</span></label><span>' + e.data.response + '</span><br/><label><span>แหล่งน้ำ :</span></label><span>' + e.data.waterResNa + '</span><br/><label><span>ลุ่มน้ำหลัก :</span></label><span>' + e.data.main_basin + '</span><br/></div><hr>ที่อยู่:' + e.data.tambol + ' ' + e.data.amphoe + ' ' + e.data.province + '<br/><small>Layer:จุดแสดงที่ตั้งการประปาส่วนภูมิภาค</small>';
       document.getElementById('title2').innerHTML = "ข้อมูลโครงการชลประทานขนาดเล็ก : "+e.data.name;

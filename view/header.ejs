@@ -22,60 +22,43 @@
     <!-- CSS App -->
     <link rel="stylesheet" type="text/css" href="/css/dist/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/dist/css/themes/flat-blue.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
     <!-- <script type="text/javascript" src="/css/jquery-1.12.3.js"></script> -->
-    <script type="text/javascript" src="/css/split-pane.js"></script>
-
     <link rel="stylesheet" href="/css/split-pane.css" />
     <link rel="stylesheet" href="/css/pretty-split-pane.css" />
-
-    <style type="text/css">
-			html, body {
-				height: 100%;
-				min-height: 100%;
-				margin: 0;
-				padding: 0;
-			}
-      #top-component {
-				bottom: 20em;
-				margin-bottom: 5px;
-				min-height: 5em;
-			}
-
-			#my-divider {
-				bottom: 20em;
-				height: 5px;
-			}
-
-			#bottom-component {
-				height: 20em;
-				min-height: 10em;
-			}
-		</style>
-    <!-- <script type="text/javascript">
-			$(function() {
-				$('div.split-pane').splitPane();
-				// $('button:first').on('click', function() {
-				// 	$('div.split-pane').splitPane('lastComponentSize', 300);
-				// });
-				// $('button:last').on('click', function() {
-				// 	$('div.split-pane').splitPane('firstComponentSize', 200);
-				// });
-			});
-		</script> -->
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+        <script src="/css/split-pane.js"></script>
+        <style type="text/css">
+            html, body {
+                height: 100%;
+                min-height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .split-pane-divider {
+                background: #aaa;
+            }
+            #top-component {
+              height: 10em;
+              min-height: 5em;
+            }
+            #my-divider {
+              top: 10em;
+              height: 5px;
+            }
+            #bottom-component {
+              top: 10em;
+              min-height: 39px;
+              margin-top: 5px;
+            }
+        </style>
+        <script>
+            $(function() {
+                $('div.split-pane').splitPane();
+            });
+        </script>
   </head>
 
   <body class="flat-blue">
-    <script type="text/javascript">
-			$(function() {
-				$('div.split-pane').splitPane();
-				// $('button:first').on('click', function() {
-				// 	$('div.split-pane').splitPane('lastComponentSize', 300);
-				// });
-				// $('button:last').on('click', function() {
-				// 	$('div.split-pane').splitPane('firstComponentSize', 200);
-				// });
-			});
-		</script>
     <div class="app-container">
       <div class="row content-container">

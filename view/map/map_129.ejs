@@ -1,24 +1,38 @@
 <% stuff = typeof stuff !== 'object' ? {} : stuff %>
-<div class="pretty-split-pane-frame"><!-- This div is added for styling purposes only. It's not part of the split-pane plugin. -->
-  <div class="split-pane fixed-bottom">
+<div class="pretty-split-pane-frame">
+  <div class="split-pane fixed-top" id="panel">
     <div class="split-pane-component" id="top-component">
-      <div class="pretty-split-pane-component-inner"><!-- This div is added for styling purposes only. It's not part of the split-pane plugin. -->
-        <div id="mapid" style="height:800px;"></div>
+      <!-- <div class="pretty-split-pane-component-inner"> -->
+        <div id="mapid" style=""></div>
       </div>
-    </div>
+    <!-- </div> -->
     <div class="split-pane-divider" id="my-divider"></div>
     <div class="split-pane-component" id="bottom-component">
-      <div class="pretty-split-pane-component-inner"><!-- This div is added for styling purposes only. It's not part of the split-pane plugin. -->
-        <p>
-          This split pane component is fixed: when re-sizing the browser window, it will
-          keep the same height.
-        </p>
-        <p>
-          You can, however, re-size this component by dragging the divider, and it will adjust if
-          the top component reaches it's <code>min-height</code> (<code>5em</code> in this example).
-        </p>
-        <!-- <p><button>Set first component size to 200</button></p> -->
-      </div>
+      <!-- <div class="pretty-split-pane-component-inner"> -->
+        <div class="card">
+          <div class="card-body no-padding">
+            <div role="tabpanel">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#title2" aria-controls="title2" role="tab" data-toggle="tab">Title</a></li>
+                <li role="presentation"><a href="#widget" aria-controls="widget" role="tab" data-toggle="tab">Widget</a></li>
+                <!-- <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li> -->
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="title2">
+
+                </div>
+                <div role="tabpanel" class="tab-pane" id="widget">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- </div> -->
     </div>
   </div>
 </div>
@@ -50,6 +64,8 @@
 <script>
 var height = window.screen.height;
 document.getElementById('mapid').style.height = height*3/4+"px";
+document.getElementById('top-component').style.height = height+"px";
+document.getElementById('panel').style.height = height*4/5+"px";
 <% if (stuff.provice == "Chanthaburi") { %>
   var center = [12.66446, 102.07947];
   <% } else if(stuff.provice == "Udonthani") { %>
