@@ -68,6 +68,7 @@ router.get("/map/:provice/:type",function(req,res){
 app.use("/",router);
 app.use("/css",express.static(__dirname + "/css"));
 app.use("/img",express.static(__dirname + "/img"));
+app.use("/ammap",express.static(__dirname + "/ammap"));
 // app.use("*",function(req,res){
 //   res.sendFile(path + "404.html");
 // });
