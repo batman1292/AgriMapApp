@@ -1,29 +1,38 @@
 <% stuff = typeof stuff !== 'object' ? {} : stuff %>
-<div id="mapid" style=""></div>
-<div class="row">
-  <div class="col-xs-12">
-    <div class="card">
-      <div class="card-body no-padding">
-        <div role="tabpanel">
-          <!-- Nav tabs -->
-          <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#title2" aria-controls="title2" role="tab" data-toggle="tab">Title</a></li>
-            <li role="presentation"><a href="#widget" aria-controls="widget" role="tab" data-toggle="tab">Widget</a></li>
-            <!-- <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-            <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li> -->
-          </ul>
+<div class="pretty-split-pane-frame">
+  <div class="split-pane fixed-top" id="panel">
+    <div class="split-pane-component" id="top-component">
+      <!-- <div class="pretty-split-pane-component-inner"> -->
+        <div id="mapid" style=""></div>
+      </div>
+    <!-- </div> -->
+    <div class="split-pane-divider" id="my-divider"></div>
+    <div class="split-pane-component" id="bottom-component">
+      <!-- <div class="pretty-split-pane-component-inner"> -->
+        <div class="card">
+          <div class="card-body no-padding">
+            <div role="tabpanel">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#title2" aria-controls="title2" role="tab" data-toggle="tab">Title</a></li>
+                <li role="presentation"><a href="#widget" aria-controls="widget" role="tab" data-toggle="tab">Widget</a></li>
+                <!-- <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li> -->
+              </ul>
 
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="title2">
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="title2">
 
-            </div>
-            <div role="tabpanel" class="tab-pane" id="widget">
+                </div>
+                <div role="tabpanel" class="tab-pane" id="widget">
 
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <!-- </div> -->
     </div>
   </div>
 </div>
@@ -89,6 +98,8 @@ $.getJSON("/jsonfile/agri_geojson_waterresource_irri_l.geojson", function(json) 
 
 var height = window.screen.height;
 document.getElementById('mapid').style.height = height*3/4+"px";
+document.getElementById('top-component').style.height = height+"px";
+document.getElementById('panel').style.height = height*4/5+"px";
 <% if (stuff.provice == "Chanthaburi") { %>
   var center = [12.66446, 102.07947];
   <% } else if(stuff.provice == "Udonthani") { %>
