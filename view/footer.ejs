@@ -29,15 +29,24 @@
         map: "thailandHigh",
         //getAreasFromMap: true,
 		"areas": [
-		{ "id": "TH-22" }, //id area Chanthaburi
-		{ "id": "TH-53" }  //id area Uttharadit
-	  ]
+		  { "id": "TH-22" }, //id area Chanthaburi
+		  { "id": "TH-41" }  //id area Udonthani
+		]
       },
-	},
-	{ type:"click",
-	  urlTarget:"www.google.com"
 	}
 	);
+	map.addListener("clickMapObject", function (event) {
+        if (event.mapObject.id == "TH-22") {
+            console.log("found Chanthaburi");
+        }
+		if (event.mapObject.id == "TH-41") {
+            console.log("found Udinthani");
+        }
+    });
+	map.areasSettings = { 
+	  rollOverColor: "#009ce0" ,
+	  selectable: true
+	};
   </script>
   </body>
 </html>
