@@ -75,7 +75,11 @@ router.get("/json/shelfs/:provice",function(req,res){
 app.use("/",router);
 app.use("/css",express.static(__dirname + "/css"));
 app.use("/img",express.static(__dirname + "/img"));
+<<<<<<< HEAD
+app.use("/ammap",express.static(__dirname + "/ammap"));
+=======
 app.use("/jsonfile",express.static(__dirname + "/jsonfile"));
+>>>>>>> master
 // app.use("*",function(req,res){
 //   res.sendFile(path + "404.html");
 // });
