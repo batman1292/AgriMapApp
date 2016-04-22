@@ -1,0 +1,184 @@
+<% stuff = typeof stuff !== 'object' ? {} : stuff %>
+<div class="pretty-split-pane-frame">
+  <div class="split-pane fixed-top" id="panel">
+    <div class="split-pane-component" id="top-component">
+      <!-- <div class="pretty-split-pane-component-inner"> -->
+        <div id="mapid" style=""></div>
+      </div>
+    <!-- </div> -->
+    <div class="split-pane-divider" id="my-divider"></div>
+    <div class="split-pane-component" id="bottom-component">
+      <!-- <div class="pretty-split-pane-component-inner"> -->
+        <div class="card">
+          <div class="card-body no-padding">
+            <div role="tabpanel">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#title2" aria-controls="title2" role="tab" data-toggle="tab">Title</a></li>
+                <li role="presentation"><a href="#widget" aria-controls="widget" role="tab" data-toggle="tab">Widget</a></li>
+                <!-- <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li> -->
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="title2">
+
+                </div>
+                <div role="tabpanel" class="tab-pane" id="widget">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- </div> -->
+    </div>
+  </div>
+</div>
+<!-- <div id="mapid" style=""></div>
+<div class="card">
+  <div class="card-body no-padding">
+    <div role="tabpanel">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#title2" aria-controls="title2" role="tab" data-toggle="tab">Title</a></li>
+        <li role="presentation"><a href="#widget" aria-controls="widget" role="tab" data-toggle="tab">Widget</a></li>
+         <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li> -->
+      <!-- </ul>
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="title2">
+
+        </div>
+        <div role="tabpanel" class="tab-pane" id="widget">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  -->
+<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+<script src="/css/leaflet.utfgrid.js"></script>
+<!-- <script src="http://cdn.leafletjs.com/leaflet/TileLayer.GeoJSON.js"></script> -->
+<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+<script>
+var height = window.screen.height;
+document.getElementById('mapid').style.height = height*3/4+"px";
+document.getElementById('top-component').style.height = height+"px";
+document.getElementById('panel').style.height = height*4/5+"px";
+<% if (stuff.provice == "Chanthaburi") { %>
+  var center = [12.66446, 102.07947];
+  <% } else if(stuff.provice == "Udonthani") { %>
+    var center = [17.3948, 102.8099];
+    <% } %>
+    var map = L.map('mapid').setView(center, 10);
+
+    var googleRoadLayerURL    = "http://mt.google.com/vt/lyrs=m&z={z}&x={x}&y={y}&hl=th";
+    var googleSatLayerURL     = "http://mt.google.com/vt/lyrs=s&z={z}&x={x}&y={y}&hl=th";
+    var googleHybridLayerURL  = "http://mt.google.com/vt/lyrs=y&z={z}&x={x}&y={y}&hl=th";
+
+    var tambolLayerUrl        = "http://49.50.235.62:8888/v2/agri_tile_tambol/{z}/{x}/{y}.png";
+    var amphureLayerUrl       = "http://49.50.235.62:8888/v2/agri_tile_amphoe/{z}/{x}/{y}.png";
+    var roadLayerUrl          = "http://49.50.235.62:8888/v2/agri_tile_road/{z}/{x}/{y}.png";
+    var irri_sLayerUrl        = "http://49.50.235.62:8888/v2/agri_tile_irri_s_total/{z}/{x}/{y}.png";
+    var irri_sGridUrl         = new L.UtfGrid('http://49.50.235.62:8888/v2/agri_tile_irri_s_total/{z}/{x}/{y}.grid.json?callback={cb}', {});
+
+    var googleRoadLayer = new L.TileLayer(googleRoadLayerURL, {
+      maxZoom       : 22,
+      minZoom       : 4,
+      // errorTileUrl  : blank_img,
+      attribution   : "google",
+      detectRetina  : false
+    });
+
+    map.addLayer(googleRoadLayer);
+
+    var googleSatLayer = new L.TileLayer(googleSatLayerURL, {
+      maxZoom: 22,
+      minZoom: 4,
+      // errorTileUrl: blank_img,
+      attribution: "google",
+      detectRetina: false
+    });
+
+    var googleHybridLayer = new L.TileLayer(googleHybridLayerURL, {
+      maxZoom: 22,
+      minZoom: 4,
+      // errorTileUrl: blank_img,
+      attribution: "google",
+      detectRetina: false
+    });
+
+    var amphureLayer = new L.TileLayer(amphureLayerUrl, {
+      maxZoom       : 22,
+      minZoom       : 4,
+      // errorTileUrl  : blank_img,
+      attribution   : "ขอบเขตอำเภอ",
+      detectRetina  : false
+    });
+    map.addLayer(amphureLayer);
+
+    var tambolLayer = new L.TileLayer(tambolLayerUrl, {
+      maxZoom       : 22,
+      minZoom       : 4,
+      // errorTileUrl  : blank_img,
+      attribution   : "ขอบเขตตำบล",
+      detectRetina  : false
+    });
+    map.addLayer(tambolLayer);
+
+    var roadLayer = new L.TileLayer(roadLayerUrl, {
+      maxZoom       : 22,
+      minZoom       : 4,
+      // errorTileUrl  : blank_img,
+      attribution   : "ถนน",
+      detectRetina  : false
+    });
+    map.addLayer(roadLayer);
+
+    var irri_sLayer = new L.TileLayer(irri_sLayerUrl, {
+      maxZoom       : 22,
+      minZoom       : 4,
+      // errorTileUrl  : blank_img,
+      attribution   : "ขอบเขตตำบล",
+      detectRetina  : false
+    });
+    map.addLayer(irri_sLayer);
+    map.addLayer(irri_sGridUrl);
+
+    /*===== baseLayers Group =====*/
+    var baseLayers = {
+      'Google Road'   : googleRoadLayer,
+      'Google Sat': googleSatLayer,
+      'Google Hybrid': googleHybridLayer
+    };
+
+    var overlays = {
+      'ขอบเขตตำบล'        : tambolLayer,
+      'ขอบเขตอำเภอ'       : amphureLayer,
+      'ถนน'          : roadLayer,
+      'อ่างเก็บน้ำ'        : irri_sLayer,
+      'อ่างเก็บน้ำ_click'    : irri_sGridUrl,
+      // 'Provincial Waterwork Authority'   : pwaLayer,
+    };
+
+    L.control.layers(baseLayers, overlays).addTo(map);
+    irri_sGridUrl.on('click', function (e) {
+      // var tamp_pwa_grid = '<div><strong>' + e.data.sta_name + '</strong></div><div><label><span>สาขา :</span></label><span>' + e.data.kpp_branch + '</span><br/><label><span>ปริมาณน้ำที่สูบ (ลบ.ม./วัน) :</span></label><span>' + e.data.Q_cms + '</span><br/><label><span>ผู้รับผิดชอบ :</span></label><span>' + e.data.response + '</span><br/><label><span>แหล่งน้ำ :</span></label><span>' + e.data.waterResNa + '</span><br/><label><span>ลุ่มน้ำหลัก :</span></label><span>' + e.data.main_basin + '</span><br/></div><hr>ที่อยู่:' + e.data.tambol + ' ' + e.data.amphoe + ' ' + e.data.province + '<br/><small>Layer:จุดแสดงที่ตั้งการประปาส่วนภูมิภาค</small>';
+      document.getElementById('title2').innerHTML = "ข้อมูลอ่างเก็บน้ำ : "+e.data.name;
+      console.log(document.getElementById('title2'));
+      // bootbox.alert(tamp_pwa_grid);
+      console.log('hover: ' + JSON.stringify( e.data));
+    });
+    // var popup = L.popup();
+    //
+    // function onMapClick(e) {
+    //   popup
+    //   .setLatLng(e.latlng)
+    //   .setContent("You clicked the map at " + e.latlng.toString())
+    //   .openOn(map);
+    // }
+    //
+    // map.on('click', onMapClick);
+
+    </script>

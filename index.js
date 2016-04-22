@@ -2,6 +2,7 @@ var express = require("express");
 var app = express();
 var router = express.Router();
 var path = __dirname + '/view/';
+var path_json = __dirname + '/jsonfile/';
 
 router.use(function (req,res,next) {
   console.log("/" + req.method);
@@ -34,8 +35,9 @@ router.get("/shelfs/:provice",function(req,res,next){
   res.locals.stuff = {
     page : "provice",
     provice : req.params.provice,
+
   }
-  console.log(provice);
+  // console.log(provice);
   res.render(path + "shelfs.ejs");
 });
 
@@ -49,6 +51,11 @@ router.get("/map/:provice/:type",function(req,res){
   }
   res.render(path + "main_map.ejs");
 });
+
+router.get("/json/shelfs/:provice",function(req,res){
+   res.sendFile(path_json + "shelfs_" + req.params.provice + ".json");
+});
+
 // app.user(function(req, res, next) {
   //  res.locals.stuff = {
   //      provice : req.params.provice,
@@ -68,7 +75,11 @@ router.get("/map/:provice/:type",function(req,res){
 app.use("/",router);
 app.use("/css",express.static(__dirname + "/css"));
 app.use("/img",express.static(__dirname + "/img"));
+<<<<<<< HEAD
 app.use("/ammap",express.static(__dirname + "/ammap"));
+=======
+app.use("/jsonfile",express.static(__dirname + "/jsonfile"));
+>>>>>>> master
 // app.use("*",function(req,res){
 //   res.sendFile(path + "404.html");
 // });
