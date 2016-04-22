@@ -1,40 +1,51 @@
-<div class="row">
+<div class="row" >
   <div class="col-xs-12">
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">
-          <div class="title">เลือกจังหวัดที่ต้องการดูแผนที่</div>
-        </div>
-      </div>
-      <div class="card-body">
-        <!-- provice menu -->
-<<<<<<< HEAD
-        <div id="mapdiv" style="width: 800px; background-color:#EEEEEE; height:600px;"></div>
-=======
-        <div class="row ">
-          <div class="col-sm-6 col-md-3 col-xs-12">
-            <div class="thumbnail">
-              <img src="../img/Seal_Chanthaburi.png" class="img-responsive" style="width:150px; height:150px; margin-top:5px;">
-              <div class="caption">
-                <h3 id="thumbnail-label">จังหวัดจันทบุรี<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <!-- <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p> -->
-                <p style="text-align: right;"><a href="/shelfs/Chanthaburi" class="btn btn-info" role="button">รายการ Agri-Maps</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-3 col-xs-12">
-            <div class="thumbnail">
-              <img src="../img/Seal_Udon_Thani.png" class="img-responsive" style="width:150px; height:150px; margin-top:5px;">
-              <div class="caption">
-                <h3 id="thumbnail-label">จังหวัดอุดรธานี<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
-                <!-- <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p> -->
-                <p style="text-align: right;"><a href="/shelfs/Udonthani" class="btn btn-info" role="button">รายการ Agri-Maps</a></p>
-              </div>
-            </div>
+    <center>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="title">เลือกจังหวัดที่ต้องการดูแผนที่</div>
           </div>
         </div>
->>>>>>> master
+        <div class="card-body">
+          <!-- provice menu -->
+          <div id="mapdiv" style="width: 100%; background-color:#EEEEEE; height:600px;"></div>
+        </div>
       </div>
-    </div>
+    </center>
   </div>
 </div>
+<script type="text/javascript" src="/ammap/ammap.js"></script>
+<script type="text/javascript" src="/ammap/maps/js/thailandHigh.js"></script>
+<script>
+var map = AmCharts.makeChart("mapdiv",
+  {
+    "type": "map",
+    "dataProvider":
+    {
+      "map": "thailandHigh",
+      //getAreasFromMap: true,
+      "areas": [
+        { "id": "TH-22" }, //id area Chanthaburi
+        { "id": "TH-41" }  //id area Udonthani
+      ]
+    },
+    // "autoDisplay" : true,
+    // "dragMap":false,
+  }
+);
+map.addListener("clickMapObject", function (event) {
+  if (event.mapObject.id == "TH-22") {
+    console.log("found Chanthaburi");
+    window.location.assign('/shelfs/Chanthaburi');
+  }
+  if (event.mapObject.id == "TH-41") {
+    console.log("found Udinthani");
+    window.location.assign('/shelfs/Udinthani');
+  }
+});
+map.areasSettings = {
+  rollOverColor: "#009ce0" ,
+  selectable: true
+};
+</script>

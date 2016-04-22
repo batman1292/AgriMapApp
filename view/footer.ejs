@@ -4,10 +4,9 @@
       <span class="pull-right">2.1 <a href="#"><i class="fa fa-long-arrow-up"></i></a></span> © 2015 Copyright.
     </div>
   </footer>
-<<<<<<< HEAD
   <div>
     <!-- Javascript Libs -->
-    <script type="text/javascript" src="/css/dist/lib/js/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="/css/dist/lib/js/jquery.min.js"></script> -->
     <script type="text/javascript" src="/css/dist/lib/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/css/dist/lib/js/Chart.min.js"></script>
     <script type="text/javascript" src="/css/dist/lib/js/bootstrap-switch.min.js"></script>
@@ -18,53 +17,8 @@
     <script type="text/javascript" src="/css/dist/lib/js/ace/ace.js"></script>
     <script type="text/javascript" src="/css/dist/lib/js/ace/mode-html.js"></script>
     <script type="text/javascript" src="/css/dist/lib/js/ace/theme-github.js"></script>
-    <script type="text/javascript" src="/ammap/ammap.js"></script>
-    <script type="text/javascript" src="/ammap/maps/js/thailandHigh.js"></script>
     <!-- Javascript -->
     <script type="text/javascript" src="/css/dist/js/app.js"></script>
     <script type="text/javascript" src="/css/dist/js/index.js"></script>
-    <script>
-    var map = AmCharts.makeChart("mapdiv",
-	{ type: "map",
-      "dataProvider": {
-        map: "thailandHigh",
-        //getAreasFromMap: true,
-		"areas": [
-		  { "id": "TH-22" }, //id area Chanthaburi
-		  { "id": "TH-41" }  //id area Udonthani
-		]
-      },
-	}
-	);
-	map.addListener("clickMapObject", function (event) {
-        if (event.mapObject.id == "TH-22") {
-            console.log("found Chanthaburi");
-        }
-		if (event.mapObject.id == "TH-41") {
-            console.log("found Udinthani");
-        }
-    });
-	map.areasSettings = { 
-	  rollOverColor: "#009ce0" ,
-	  selectable: true
-	};
-  </script>
-=======
-  <!-- Javascript Libs -->
-  <!-- <script type="text/javascript" src="/css/dist/lib/js/jquery.min.js"></script> -->
-  <script type="text/javascript" src="/css/dist/lib/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/css/dist/lib/js/Chart.min.js"></script>
-  <script type="text/javascript" src="/css/dist/lib/js/bootstrap-switch.min.js"></script>
-  <script type="text/javascript" src="/css/dist/lib/js/jquery.matchHeight-min.js"></script>
-  <script type="text/javascript" src="/css/dist/lib/js/jquery.dataTables.min.js"></script>
-  <script type="text/javascript" src="/css/dist/lib/js/dataTables.bootstrap.min.js"></script>
-  <script type="text/javascript" src="/css/dist/lib/js/select2.full.min.js"></script>
-  <script type="text/javascript" src="/css/dist/lib/js/ace/ace.js"></script>
-  <script type="text/javascript" src="/css/dist/lib/js/ace/mode-html.js"></script>
-  <script type="text/javascript" src="/css/dist/lib/js/ace/theme-github.js"></script>
-  <!-- Javascript -->
-  <script type="text/javascript" src="/css/dist/js/app.js"></script>
-  <script type="text/javascript" src="/css/dist/js/index.js"></script>
->>>>>>> master
   </body>
 </html>
