@@ -26,7 +26,39 @@
 
                 </div>
                 <div role="tabpanel" class="tab-pane" id="widget">
-
+                  <div class="row">
+                    <div class="col-xs-2 col-sm-1 col-sm-offset-3">
+                      <img src="/img/amphure.PNG" width='20' height="100%"/>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                      <p class="widget">ที่ตั้งอำเภอ</p>
+                    </div>
+                    <div class="col-xs-4 col-sm-2 layer">
+                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(amphureLayer)">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-2 col-sm-1 col-sm-offset-3">
+                      <img src="/img/tambol.png" width='20' height="100%"/>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                      <p class="widget">ขอบเขตตำบล</p>
+                    </div>
+                    <div class="col-xs-4 col-sm-2 layer">
+                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(tambolLayer)">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-2 col-sm-1 col-sm-offset-3">
+                      <img src="/img/road.png" width='20' height="100%"/>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                      <p class="widget">ถนนเส้นหลัก</p>
+                    </div>
+                    <div class="col-xs-4 col-sm-2 layer">
+                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(roadLayer)">
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -232,6 +264,14 @@ document.getElementById('panel').style.height = height*4/5+"px";
       // bootbox.alert(tamp_pwa_grid);
       console.log('hover: ' + JSON.stringify( e.data));
     });
+
+    function changeLayer(layer){
+      if(map.hasLayer(layer)){
+        map.removeLayer(layer);
+      }else{
+        map.addLayer(layer);
+      }
+    }
     // var popup = L.popup();
     //
     // function onMapClick(e) {

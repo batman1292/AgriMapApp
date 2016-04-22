@@ -30,18 +30,36 @@ console.log(title.innerHTML);
         <% if (stuff.type){ %> \
           <% if(stuff.type == 1){ %>\
             <li class='active'>แผนที่ขอบเขตการปกครอง</li>\
-            <%}else if(stuff.type == 8){ %>\
+          <% }else if(stuff.type == 8){ %>\
               <li class='active'>แผนที่แหล่งน้ำผิวดิน</li>\
-        <% } } %>\
+          <% } else if(stuff.type == 9){ %>\
+              <li class='active'>แผนที่แหล่งน้ำใต้ดิน</li>\
+          <% } else if(stuff.type == 2){ %>\
+              <li class='active'>แผนที่การใช้ที่ดิน</li>\
+          <% } else if(stuff.type == 3){ %>\
+              <li class='active'>พื้นที่ปลูกข้าวในชั้นความเหมาะสมต่างๆ</li>\
+          <% } else if(stuff.type == 6){ %>\
+              <li class='active'>พื้นที่ปลูกยางในชั้นความเหมาะสมต่างๆ</li>\
+          <% } %>\
+        <% } %>\
       <% } %>";
     }else {
       title.innerHTML  = " \
       <% if (stuff.type) { %> \
         <% if(stuff.type == 1){ %>\
-        <li class='active'>แผนที่ขอบเขตการปกครอง</li>\
-        <% }else if(stuff.type == 8) {%>\
-          <li class='active'>แผนที่แหล่งน้ำผิวดิน</li>\
-      <%} }else{ %>\
+          <li class='active'>แผนที่ขอบเขตการปกครอง</li>\
+        <% }else if(stuff.type == 8){ %>\
+            <li class='active'>แผนที่แหล่งน้ำผิวดิน</li>\
+        <% } else if(stuff.type == 9){ %>\
+            <li class='active'>แผนที่แหล่งน้ำใต้ดิน</li>\
+        <% } else if(stuff.type == 2){ %>\
+            <li class='active'>แผนที่การใช้ที่ดิน</li>\
+        <% } else if(stuff.type == 3){ %>\
+            <li class='active'>พื้นที่ปลูกข้าวในชั้นความเหมาะสมต่างๆ</li>\
+        <% } else if(stuff.type == 6){ %>\
+            <li class='active'>พื้นที่ปลูกยางในชั้นความเหมาะสมต่างๆ</li>\
+        <% } %>\
+      <% }else{ %>\
         <li class='active'><a href='/'>Map</a></li>\
         <% if (stuff.provice) { %>\
           <li class='active'>\
