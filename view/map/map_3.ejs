@@ -16,6 +16,7 @@
               <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#title2" aria-controls="title2" role="tab" data-toggle="tab">Info</a></li>
                 <li role="presentation"><a href="#widget" aria-controls="widget" role="tab" data-toggle="tab">รายละเอียดแผนที่</a></li>
+                <li role="presentation"><a href="#layercontrol" aria-controls="layercontrol" role="tab" data-toggle="tab">ซ่อน/แสดงแผนที่</a></li>
                 <!-- <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
                 <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li> -->
               </ul>
@@ -27,40 +28,124 @@
                 </div>
                 <div role="tabpanel" class="tab-pane" id="widget">
                   <div class="row">
-                    <div class="col-xs-2 col-sm-1 col-sm-offset-3">
+                    <div class="col-xs-2 col-sm-1">
                       <img src="/img/amphure.PNG" width='20' height="100%"/>
                     </div>
-                    <div class="col-xs-6 col-sm-3">
+                    <div class="col-xs-6 col-sm-5">
+                      <p class="widget">ที่ตั้งอำเภอ</p>
+                    </div>
+                    <!-- <div class="col-xs-4 col-sm-2 layer">
+                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(amphureLayer)">
+                    </div> -->
+                  <!-- </div>
+                  <div class="row"> -->
+                    <div class="col-xs-2 col-sm-1 ">
+                      <img src="/img/tambol.png" width='20' height="100%"/>
+                    </div>
+                    <div class="col-xs-6 col-sm-5">
+                      <p class="widget">ขอบเขตตำบล</p>
+                    </div>
+                    <!-- <div class="col-xs-4 col-sm-2 layer">
+                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(tambolLayer)">
+                    </div> -->
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-2 col-sm-1">
+                      <img src="/img/road.png" width='20' height="100%"/>
+                    </div>
+                    <div class="col-xs-6 col-sm-5">
+                      <p class="widget">ถนนเส้นหลัก</p>
+                    </div>
+                    <!-- <div class="col-xs-4 col-sm-2 layer">
+                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(roadLayer)">
+                    </div> -->
+                    <div class="col-xs-2 col-sm-1">
+                      <img src="/img/river.png" width='20' height="100%"/>
+                    </div>
+                    <div class="col-xs-6 col-sm-5">
+                      <p class="widget">พื้นที่ปลูกข้าว</p>
+                    </div>
+                    <!-- <div class="col-xs-4 col-sm-2 layer">
+                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(roadLayer)">
+                    </div> -->
+                  </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="layercontrol">
+                  <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xs-offset-1 col-sm-offset-2">
                       <p class="widget">ที่ตั้งอำเภอ</p>
                     </div>
                     <div class="col-xs-4 col-sm-2 layer">
-                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(amphureLayer)">
+                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(1)">
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-xs-2 col-sm-1 col-sm-offset-3">
-                      <img src="/img/tambol.png" width='20' height="100%"/>
-                    </div>
-                    <div class="col-xs-6 col-sm-3">
+                    <div class="col-xs-6 col-sm-6 col-xs-offset-1 col-sm-offset-2">
                       <p class="widget">ขอบเขตตำบล</p>
                     </div>
                     <div class="col-xs-4 col-sm-2 layer">
-                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(tambolLayer)">
+                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(2)">
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-xs-2 col-sm-1 col-sm-offset-3">
-                      <img src="/img/road.png" width='20' height="100%"/>
-                    </div>
-                    <div class="col-xs-6 col-sm-3">
+                    <div class="col-xs-6 col-sm-6 col-xs-offset-1 col-sm-offset-2">
                       <p class="widget">ถนนเส้นหลัก</p>
                     </div>
                     <div class="col-xs-4 col-sm-2 layer">
-                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(roadLayer)">
+                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(3)">
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xs-offset-1 col-sm-offset-2">
+                      <p class="widget">พื้นที่ปลูกข้าว</p>
+                    </div>
+                    <div class="col-xs-4 col-sm-2 layer">
+                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(10)">
+                    </div>
+                  </div>
+                  <!-- <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xs-offset-1 col-sm-offset-2">
+                      <p class="widget">แม่น้ำสายหลัก</p>
+                    </div>
+                    <div class="col-xs-4 col-sm-2 layer">
+                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(4)">
+                    </div>
+                  </div> -->
+                  <!-- <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xs-offset-1 col-sm-offset-2">
+                      <p class="widget">โครงการชลประทานขนาดเล็ก</p>
+                    </div>
+                    <div class="col-xs-4 col-sm-2 layer">
+                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(5)">
+                    </div>
+                  </div> -->
+                  <!-- <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xs-offset-1 col-sm-offset-2">
+                      <p class="widget">โครงการชลประทานขนาดกลาง</p>
+                    </div>
+                    <div class="col-xs-4 col-sm-2 layer">
+                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(6)">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xs-offset-1 col-sm-offset-2">
+                      <p class="widget">โครงการชลประทานขนาดใหญ่</p>
+                    </div>
+                    <div class="col-xs-4 col-sm-2 layer">
+                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(7)">
+                    </div>
+                  </div> -->
+                  <!-- <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-xs-offset-1 col-sm-offset-2">
+                      <p class="widget">พื้นที่โครงการชลประทาน</p>
+                    </div>
+                    <div class="col-xs-4 col-sm-2 layer">
+                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(8)">
+                    </div>
+                  </div> -->
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -69,7 +154,7 @@
   </div>
 </div>
 <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-<script src="css/leaflet.utfgrid.js"></script>
+<script src="/css/leaflet.utfgrid.js"></script>
 <!-- <script src="http://cdn.leafletjs.com/leaflet/TileLayer.GeoJSON.js"></script> -->
 <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
 <script>
@@ -170,10 +255,78 @@ document.getElementById('panel').style.height = height*4/5+"px";
     L.control.layers(baseLayers, overlays).addTo(map);
 
     function changeLayer(layer){
-      if(map.hasLayer(layer)){
-        map.removeLayer(layer);
-      }else{
-        map.addLayer(layer);
+      if(layer === 1){
+        if(map.hasLayer(amphureLayer)){
+          map.removeLayer(amphureLayer);
+        }else{
+          map.addLayer(amphureLayer);
+        }
+      }else if(layer === 2){
+        if(map.hasLayer(tambolLayer)){
+          map.removeLayer(tambolLayer);
+        }else{
+          map.addLayer(tambolLayer);
+        }
+      }else if(layer === 3){
+        if(map.hasLayer(roadLayer)){
+          map.removeLayer(roadLayer);
+        }else{
+          map.addLayer(roadLayer);
+        }
+      }else if(layer === 4){
+        if(map.hasLayer(riverLayer)){
+          map.removeLayer(riverLayer);
+          map.removeLayer(riverGridUrl);
+        }else{
+          map.addLayer(riverLayer);
+          map.addLayer(riverGridUrl);
+        }
+      }else if(layer === 5){
+        if(map.hasLayer(irri_sLayer)){
+          map.removeLayer(irri_sLayer);
+          map.removeLayer(irri_sGridUrl);
+        }else{
+          map.addLayer(irri_sLayer);
+          map.addLayer(irri_sGridUrl);
+        }
+      }else if(layer === 6){
+        // if(map.hasLayer(tambolLayer)){
+        //   map.removeLayer(tambolLayer);
+        // }else{
+        //   map.addLayer(tambolLayer);
+        // }
+      }else if(layer === 7){
+        // if(map.hasLayer(tambolLayer)){
+        //   map.removeLayer(tambolLayer);
+        // }else{
+        //   map.addLayer(tambolLayer);
+        // }
+      }else if(layer === 8){
+        if(map.hasLayer(irrLayer)){
+          map.removeLayer(irrLayer);
+          map.removeLayer(irrGridUrl);
+        }else{
+          map.addLayer(irrLayer);
+          map.addLayer(irrGridUrl);
+        }
+      }else if(layer === 9){
+        //การใช้ดิน
+        if(map.hasLayer(irrLayer)){
+          map.removeLayer(irrLayer);
+          map.removeLayer(irrGridUrl);
+        }else{
+          map.addLayer(irrLayer);
+          map.addLayer(irrGridUrl);
+        }
+      }else if(layer === 10){
+        //layer ข้าว
+        // if(map.hasLayer(irrLayer)){
+        //   map.removeLayer(irrLayer);
+        //   map.removeLayer(irrGridUrl);
+        // }else{
+        //   map.addLayer(irrLayer);
+        //   map.addLayer(irrGridUrl);
+        // }
       }
     }
     // var popup = L.popup();
