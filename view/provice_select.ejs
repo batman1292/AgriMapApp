@@ -30,11 +30,13 @@ var map = AmCharts.makeChart("mapdiv",
         { "id": "TH-22" },  //id Chanthaburi
         { "id": "TH-30" },  //id Nakhon rachasrima
         { "id": "TH-34" },  //id Ubon rachathani
-        { "id": "TH-40" },  //id Khon Ken
-        { "id": "TH-41" },  //id Udonthani
         { "id": "TH-50" },  //id Chiang Mai
+        { "id": "TH-41" },  //id Udonthani
+        { "id": "TH-56" },  //id Phayao
         { "id": "TH-62" },  //id Kamphaeng Phet
-        { "id": "TH-90" },  //id Songkha
+        { "id": "TH-70" },  //id Ratchaburi
+        { "id": "TH-96" },  //id Narathiwat
+        { "id": "TH-84" },  //id Surat Thani
         { "id": "TH-92" }   //id Trang
       ]
     },
@@ -50,6 +52,46 @@ map.addListener("clickMapObject", function (event) {
   if (event.mapObject.id == "TH-41") {
     console.log("found Udinthani");
     window.location.assign('/shelfs/Udonthani');
+  }
+  if (event.mapObject.id == "TH-14") {
+    console.log("found Chanthaburi");
+    window.location.assign('/shelfs/PhraNaKhonSriAyutthaya');
+  }
+  if (event.mapObject.id == "TH-30") {
+    console.log("found Udinthani");
+    window.location.assign('/shelfs/Nakhonrachasrima');
+  }
+  if (event.mapObject.id == "TH-34") {
+    console.log("found Chanthaburi");
+    window.location.assign('/shelfs/Ubonrachathani');
+  }
+  if (event.mapObject.id == "TH-50") {
+    console.log("found Udinthani");
+    window.location.assign('/shelfs/ChiangMai');
+  }
+  if (event.mapObject.id == "TH-56") {
+    console.log("found Chanthaburi");
+    window.location.assign('/shelfs/Phayao');
+  }
+  if (event.mapObject.id == "TH-62") {
+    console.log("found Udinthani");
+    window.location.assign('/shelfs/KamphaengPhet');
+  }
+  if (event.mapObject.id == "TH-70") {
+    console.log("found Chanthaburi");
+    window.location.assign('/shelfs/Ratchaburi');
+  }
+  if (event.mapObject.id == "TH-96") {
+    console.log("found Udinthani");
+    window.location.assign('/shelfs/Narathiwat');
+  }
+  if (event.mapObject.id == "TH-84") {
+    console.log("found Chanthaburi");
+    window.location.assign('/shelfs/SuratThani');
+  }
+  if (event.mapObject.id == "TH-92") {
+    console.log("found Udinthani");
+    window.location.assign('/shelfs/Trang');
   }
 });
 map.areasSettings = {

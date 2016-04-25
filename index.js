@@ -77,6 +77,7 @@ app.use("/css",express.static(__dirname + "/css"));
 app.use("/img",express.static(__dirname + "/img"));
 app.use("/ammap",express.static(__dirname + "/ammap"));
 app.use("/jsonfile",express.static(__dirname + "/jsonfile"));
+app.use("/3d",express.static(__dirname + "/view/map"));
 // app.use("*",function(req,res){
 //   res.sendFile(path + "404.html");
 // });

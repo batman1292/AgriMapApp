@@ -1,0 +1,15 @@
+<% stuff = typeof stuff !== 'object' ? {} : stuff %>
+<!-- <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"> -->
+<% if(stuff.type == 13) { %>
+  <iframe src="/3d/<%- stuff.provice -%>_bound/bond.html" id="3dmap" ></iframe>
+<% }else{ %>
+  <iframe src="/3d/<%- stuff.provice -%>_earth/lu.html" id="3dmap"></iframe>
+<% } %>
+<script>
+var height = window.screen.height;
+var width = window.screen.width;
+var w = screen.availWidth;
+var h = screen.availHeight;
+document.getElementById('3dmap').height = h;
+document.getElementById('3dmap').width = w;
+</script>

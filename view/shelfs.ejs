@@ -18,11 +18,23 @@
                 <a href="/map/<%- stuff.provice -%>/1">แผนที่ขอบเขตการปกครอง</a>
                 <span class="badge hidden-xs"><a  href="/map/<%- stuff.provice -%>/1" style="color:white;">เรียกดูแผนที่</a></span>
               </li>
+              <% if (stuff.provice == "Udonthani" || stuff.provice == "Chanthaburi") { %>
+                <li class="list-group-item ">
+                  <a href="/map/<%- stuff.provice -%>/13">แผนที่ขอบเขตการปกครอง 3 มิติ</a>
+                  <span class="badge hidden-xs"><a  href="/map/<%- stuff.provice -%>/1" style="color:white;">เรียกดูแผนที่</a></span>
+                </li>
+              <% } %>
               <li class="list-group-item">
                 <a href="/map/<%- stuff.provice -%>/2">แผนที่การใช้ที่ดิน</a>
                 <span class="badge hidden-xs"><a  href="/map/<%- stuff.provice -%>/2" style="color:white;">เรียกดูแผนที่</a></span>
                 <!-- แผนที่การใช้ที่ดิน <span class="badge"><a href="shelfs/Uttaradit" style="color:white;">เรียกดูแผนที่</a></span> -->
               </li>
+              <% if (stuff.provice == "Udonthani" || stuff.provice == "Chanthaburi") { %>
+                <li class="list-group-item ">
+                  <a href="/map/<%- stuff.provice -%>/23">แผนที่การใช้ที่ดิน 3 มิติ</a>
+                  <span class="badge hidden-xs"><a  href="/map/<%- stuff.provice -%>/1" style="color:white;">เรียกดูแผนที่</a></span>
+                </li>
+              <% } %>
             </ul>
           </div>
         </div>
@@ -36,7 +48,7 @@
           </div>
           <div class="card-body">
             <ul class="list-group">
-              <li class="list-group-item">
+              <li class="list-group-item disabled">
                 <a href="/map/<%- stuff.provice -%>/3">พื้นที่ปลูกข้าวในชั้นความเหมาะสมต่างๆ</a>
                 <span class="badge hidden-xs"><a  href="/map/<%- stuff.provice -%>/3" style="color:white;">เรียกดูแผนที่</a></span>
                 <!-- พื้นที่ปลูกข้าวในชั้นความเหมาะสมต่างๆ <span class="badge"><a href="shelfs/Uttaradit" style="color:white;">เรียกดูแผนที่</a></span> -->
@@ -51,7 +63,7 @@
                 <span class="badge hidden-xs"><a  href="/map/<%- stuff.provice -%>/5" style="color:white;">เรียกดูแผนที่</a></span>
                 <!-- พื้นที่ปลูกมันในชั้นความเหมาะสมต่างๆ <span class="badge"><a href="shelfs/Uttaradit" style="color:white;">เรียกดูแผนที่</a></span> -->
               </li>
-              <li class="list-group-item">
+              <li class="list-group-item disabled">
                 <a href="/map/<%- stuff.provice -%>/6">พื้นที่ปลูกยางในชั้นความเหมาะสมต่างๆ</a>
                 <span class="badge hidden-xs"><a  href="/map/<%- stuff.provice -%>/6" style="color:white;">เรียกดูแผนที่</a></span>
                 <!-- พื้นที่ปลูกยางในชั้นความเหมาะสมต่างๆ <span class="badge"><a href="shelfs/Uttaradit" style="color:white;">เรียกดูแผนที่</a></span> -->
