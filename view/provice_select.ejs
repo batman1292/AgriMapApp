@@ -26,8 +26,16 @@ var map = AmCharts.makeChart("mapdiv",
       "map": "thailandHigh",
       //getAreasFromMap: true,
       "areas": [
-        { "id": "TH-22" }, //id area Chanthaburi
-        { "id": "TH-41" }  //id area Udonthani
+        { "id": "TH-14" },  //id Phra Na Khon Sri Ayutthaya
+        { "id": "TH-22" },  //id Chanthaburi
+        { "id": "TH-30" },  //id Nakhon rachasrima
+        { "id": "TH-34" },  //id Ubon rachathani
+        { "id": "TH-40" },  //id Khon Ken
+        { "id": "TH-41" },  //id Udonthani
+        { "id": "TH-50" },  //id Chiang Mai
+        { "id": "TH-62" },  //id Kamphaeng Phet
+        { "id": "TH-90" },  //id Songkha
+        { "id": "TH-92" }   //id Trang
       ]
     },
     // "autoDisplay" : true,
@@ -45,7 +53,6 @@ map.addListener("clickMapObject", function (event) {
   }
 });
 map.areasSettings = {
-  rollOverColor: "#009ce0" ,
   selectable: true
 };
 </script>
