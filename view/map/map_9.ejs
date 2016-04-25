@@ -71,16 +71,14 @@
                   </div>
                   <div class="row">
                     <div class="col-xs-2 col-sm-1 ">
-                      <img src="/img/irr_area.png" width='20' height="100%"/>
+                      <img src="/img/well.png" width='20' height="100%"/>
                     </div>
                     <div class="col-xs-10 col-sm-5">
-                      <p class="widget">พื้นที่โครงการชลประทาน</p>
+                      <p class="widget">แหล่งน้ำใต้ดิน</p>
                     </div>
-                    <!-- <div class="col-xs-4 col-sm-2 layer">
-                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(roadLayer)">
-                    </div> -->
                   </div>
                 </div>
+
                 <div role="tabpanel" class="tab-pane" id="layercontrol">
                   <div class="row">
                     <div class="col-xs-6 col-sm-6 col-xs-offset-1 col-sm-offset-2">
@@ -114,14 +112,14 @@
                       <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(4)">
                     </div>
                   </div>
-                  <!-- <div class="row">
+                  <div class="row">
                     <div class="col-xs-6 col-sm-6 col-xs-offset-1 col-sm-offset-2">
-                      <p class="widget">โครงการชลประทานขนาดเล็ก</p>
+                      <p class="widget">แหล่งน้ำใต้ดิน</p>
                     </div>
                     <div class="col-xs-4 col-sm-2 layer">
-                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(5)">
+                      <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(9)">
                     </div>
-                  </div> -->
+                  </div>
                   <!-- <div class="row">
                     <div class="col-xs-6 col-sm-6 col-xs-offset-1 col-sm-offset-2">
                       <p class="widget">โครงการชลประทานขนาดกลาง</p>
@@ -138,14 +136,14 @@
                       <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(7)">
                     </div>
                   </div> -->
-                  <div class="row">
+                  <!-- <div class="row">
                     <div class="col-xs-6 col-sm-6 col-xs-offset-1 col-sm-offset-2">
                       <p class="widget">พื้นที่โครงการชลประทาน</p>
                     </div>
                     <div class="col-xs-4 col-sm-2 layer">
                       <input type="checkbox" class="toggle-checkbox"  checked onchange="changeLayer(8)">
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -182,9 +180,11 @@ document.getElementById('panel').style.height = height*4/5+"px";
     var amphureLayerUrl       = "http://49.50.235.62:8888/v2/agri_tile_amphoe/{z}/{x}/{y}.png";
     var roadLayerUrl          = "http://49.50.235.62:8888/v2/agri_tile_road/{z}/{x}/{y}.png";
     var riverLayerUrl         = "http://irrigationstructure.rid.go.th:8888/v2/stream/{z}/{x}/{y}.png";
-    var riverGridUrl         = new L.UtfGrid("http://irrigationstructure.rid.go.th:8888/v2/stream/{z}/{x}/{y}.grid.json?callback={cb}", {});
-    var irrLayerUrl           = "http://49.50.235.62:8888/v2/agri_tile_irr_area/{z}/{x}/{y}.png";
-    var irrGridUrl         = new L.UtfGrid("http://49.50.235.62:8888/v2/agri_tile_irr_area/{z}/{x}/{y}.grid.json?callback={cb}", {});
+    var riverGridUrl          = new L.UtfGrid("http://irrigationstructure.rid.go.th:8888/v2/stream/{z}/{x}/{y}.grid.json?callback={cb}", {});
+    var wellLayerUrl          = "http://49.50.235.62:8888/v2/agri_tile_well_54717e/{z}/{x}/{y}.png";
+    var wellGridUrl           = new L.UtfGrid("http://49.50.235.62:8888/v2/agri_tile_well_54717e/{z}/{x}/{y}.grid.json?callback={cb}", {});
+    // var irrLayerUrl           = "http://49.50.235.62:8888/v2/agri_tile_irr_area/{z}/{x}/{y}.png";
+    // var irrGridUrl         = new L.UtfGrid("http://49.50.235.62:8888/v2/agri_tile_irr_area/{z}/{x}/{y}.grid.json?callback={cb}", {});
 
     var googleRoadLayer = new L.TileLayer(googleRoadLayerURL, {
       maxZoom       : 22,
@@ -249,15 +249,25 @@ document.getElementById('panel').style.height = height*4/5+"px";
     map.addLayer(riverLayer);
     map.addLayer(riverGridUrl);
 
-    var irrLayer = new L.TileLayer(irrLayerUrl, {
+    var wellLayer = new L.TileLayer(wellLayerUrl, {
       maxZoom       : 22,
       minZoom       : 4,
       // errorTileUrl  : blank_img,
-      attribution   : "โครงการ",
+      attribution   : "แม่น้ำสายหลัก",
       detectRetina  : false
     });
-    map.addLayer(irrLayer);
-    map.addLayer(irrGridUrl);
+    map.addLayer(wellLayer);
+    map.addLayer(wellGridUrl);
+
+    // var irrLayer = new L.TileLayer(irrLayerUrl, {
+    //   maxZoom       : 22,
+    //   minZoom       : 4,
+    //   // errorTileUrl  : blank_img,
+    //   attribution   : "โครงการ",
+    //   detectRetina  : false
+    // });
+    // map.addLayer(irrLayer);
+    // map.addLayer(irrGridUrl);
 
     /*===== baseLayers Group =====*/
     var baseLayers = {
@@ -272,10 +282,12 @@ document.getElementById('panel').style.height = height*4/5+"px";
       'ถนน'                           : roadLayer,
       'แม่น้ำสายหลัก'                    : riverLayer,
       'แม่น้ำสายหลัก_click'              : riverGridUrl,
+      'บ่อน้ำบาดาร'                     : wellLayer,
+      'บ่อน้ำบาดาร_click'                : wellGridUrl,
       // 'โครงการชลประทานขนาดเล็ก'         : irri_sLayer,
       // 'โครงการชลประทานขนาดเล็ก_click'   : irri_sGridUrl,
-      'พื้นที่โครงการชลประทาน'            : irrLayer,
-      'พื้นที่โครงการชลประทาน_click'      : irrGridUrl,
+      // 'พื้นที่โครงการชลประทาน'            : irrLayer,
+      // 'พื้นที่โครงการชลประทาน_click'      : irrGridUrl,
       // 'Provincial Waterwork Authority'   : pwaLayer,
     };
 
@@ -336,6 +348,14 @@ document.getElementById('panel').style.height = height*4/5+"px";
           map.addLayer(irrLayer);
           map.addLayer(irrGridUrl);
         }
+      }else if(layer === 9){
+        if(map.hasLayer(wellLayer)){
+          map.removeLayer(wellLayer);
+          map.removeLayer(wellGridUrl);
+        }else{
+          map.addLayer(wellLayer);
+          map.addLayer(wellGridUrl);
+        }
       }
     }
 
@@ -346,7 +366,7 @@ document.getElementById('panel').style.height = height*4/5+"px";
       console.log('hover: ' + JSON.stringify( e.data));
     });
 
-    irrGridUrl.on('click', function (e) {
+    wellGridUrl.on('click', function (e) {
       if(e.data != null){
         document.getElementById('title2').innerHTML = "ข้อมูลโครงการ : "+e.data.OWNER+"<br> พื้นที่: "+e.data.IRRAREA+"ตารางเมตร";
       }
