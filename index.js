@@ -12,21 +12,21 @@ router.use(function (req,res,next) {
 router.get("/",function(req,res){
   res.locals.stuff = {
     page : "index",
-  }
+  };
   res.render(path + "index.ejs");
 });
 
 router.get("/index",function(req,res){
   res.locals.stuff = {
     page : "index",
-  }
+  };
   res.render(path + "index.ejs");
 });
 
 router.get("/provice",function(req,res){
   res.locals.stuff = {
     page : "provice",
-  }
+  };
   res.render(path + "provice.ejs");
 });
 
@@ -35,8 +35,7 @@ router.get("/shelfs/:provice",function(req,res,next){
   res.locals.stuff = {
     page : "provice",
     provice : req.params.provice,
-
-  }
+  };
   // console.log(provice);
   res.render(path + "shelfs.ejs");
 });
@@ -48,7 +47,7 @@ router.get("/map/:provice/:type",function(req,res){
     page : "provice",
     provice : req.params.provice,
     type : type,
-  }
+  };
   res.render(path + "main_map.ejs");
 });
 
